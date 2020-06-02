@@ -353,7 +353,6 @@ def plot_figs(cycles=3):
     # plt.grid()
     # plt.show()
 
-    exponents = np.linspace(-2, 2, 5)
     file_name = 'images/' + str(cycles) + 'enzymes_'
 
     pulse = ODESolving({**sensible_params, 'amplitude': 1})
@@ -404,16 +403,42 @@ def plot_figs(cycles=3):
     plt.show()
 
 
+def compare_cycles_graph(cycles):
+    sensible_params = {'amplitude': 2.5, 'G_1': 0.2775, 'R_T': 5e4}
+    variable_labels = ['R bar', 'C bar', 'P bar', 'P_a bar', 'e1p', 'e2p', 'e3p', 'e4p']
+    last_index = cycles + 3
+    equation = 'coupled' + str(cycles)
+
+    exponents = np.linspace(-2, 2, 5)
+    file_name = 'images/' + str(cycles) + 'enzymes_'
+
+    plt.subplot(221)
     amplitude_values = 2.5 * np.power(10, exponents)
     for value in amplitude_values:
         alter_I = ODESolving({**sensible_params, 'amplitude': value})
         sole = alter_I.solve(equations=equation)
         label = 'I_0=' + str(round(value, 4))
-        plt.plot(sole.t[:], sole.y[last_index, :], label=label)
+        if value==2.5:
+            plt.plot(sole.t[:], sole.y[last_index, :], label=label)
+        else:
+            plt.plot(sole.t[:], sole.y[last_index, :], label=label, alpha=0.5)
+    plt.ylabel(variable_labels[last_index])
+    plt.legend(loc='best')
+
+    plt.subplot(223)
+    G1_values = 0.2775 * np.power(10, exponents)
+    for value in G1_values:
+        alter_G = ODESolving({**sensible_params, 'G_1': value})
+        sole = alter_G.solve(equations=equation)
+        label = 'G_1=' + str(round(value, 4))
+        if value==0.2775:
+            plt.plot(sole.t[:], sole.y[last_index, :], label=label)
+        else:
+            plt.plot(sole.t[:], sole.y[last_index, :], label=label, alpha=0.5)
     plt.ylabel(variable_labels[last_index])
     plt.legend(loc='best')
     plt.xlabel('time (min)')
-    plt.savefig(file_name + 'I0variation.pdf')
+    plt.savefig(file_name + 'G1andI0variation.pdf')
     plt.show()
 
     G2_values = 5e-4 * np.power(10, exponents)
@@ -428,17 +453,6 @@ def plot_figs(cycles=3):
     plt.savefig(file_name + 'G2variation.pdf')
     plt.show()
 
-    G1_values = 0.2775 * np.power(10, exponents)
-    for value in G1_values:
-        alter_G = ODESolving({**sensible_params, 'G_1': value})
-        sole = alter_G.solve(equations=equation)
-        label = 'G_1=' + str(round(value, 4))
-        plt.plot(sole.t[:], sole.y[last_index, :], label=label)
-    plt.ylabel(variable_labels[last_index])
-    plt.legend(loc='best')
-    plt.xlabel('time')
-    plt.savefig(file_name + 'G1variation.pdf')
-    plt.show()
 
     G3_values= 1 * np.power(10, exponents)
     for value in G3_values:
@@ -466,9 +480,14 @@ def plot_figs(cycles=3):
 
 
 if __name__ == '__main__':
-    plot_figs(cycles=2)
-    plot_figs(cycles=3)
-    plot_figs(cycles=4)
+    # plot_figs(cycles=2)
+    # plot_figs(cycles=3)
+    # plot_figs(cycles=4)
+
+    compare_cycles_graph(2)
+    compare_cycles_graph(3)
+    compare_cycles_graph(4)
+
 
     # sol = ode_to_graph.solve(equations='receptor')
     #

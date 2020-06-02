@@ -55,7 +55,7 @@ def cycle_3_sensitivity(parameters, exponential_level, parameter_base_values, cy
             sensitivitiesT_3cycles[i] = Si['ST']
 
         for i in range(0, len(parameters)):
-            plt.plot(t[:], np.asarray(sensitivities1)[:, i], label=parameters[i])
+            plt.plot(t[:], np.asarray(sensitivities1_3cycles)[:, i], label=parameters[i])
 
         plt.legend(loc='center right')
         plt.xlabel('t')
@@ -67,13 +67,13 @@ def cycle_3_sensitivity(parameters, exponential_level, parameter_base_values, cy
         print('First Sensitivity peaks for 3 cycles:')
         for i in range(0, len(parameters)):
             print('\t', parameters[i], 'peaks:')
-            peak_list, _ = find_peaks(np.asarray(sensitivities1)[100:, i])
+            peak_list, _ = find_peaks(np.asarray(sensitivities1_3cycles)[100:, i])
             peak_list = np.sort(peak_list)
             for peak in peak_list:
-                print('\t\t at t =', t[peak], 'for a sensitivity of', np.asarray(sensitivities1)[peak, i])
+                print('\t\t at t =', t[peak], 'for a sensitivity of', np.asarray(sensitivities1_3cycles)[peak, i])
 
         for i in range(0, len(parameters)):
-            plt.plot(t[:], np.asarray(sensitivitiesT)[:, i], label=parameters[i])
+            plt.plot(t[:], np.asarray(sensitivitiesT_3cycles)[:, i], label=parameters[i])
 
         plt.legend(loc='center right')
         plt.xlabel('t')
@@ -86,14 +86,14 @@ def cycle_3_sensitivity(parameters, exponential_level, parameter_base_values, cy
         print('Total Sensitivity peaks for 3 cycles:')
         for i in range(0, len(parameters)):
             print('\t', parameters[i], 'peaks:')
-            peak_list, _ = find_peaks(np.asarray(sensitivitiesT)[100:, i])
+            peak_list, _ = find_peaks(np.asarray(sensitivitiesT_3cycles)[100:, i])
             peak_list = np.sort(peak_list)
             for peak in peak_list:
-                print('\t\t at t =', t[peak], 'for a sensitivity of', np.asarray(sensitivitiesT)[peak, i])
+                print('\t\t at t =', t[peak], 'for a sensitivity of', np.asarray(sensitivitiesT_3cycles)[peak, i])
 
 
         for i in range(0, len(parameters)):
-            plt.plot(t[:], np.asarray(sensitivities1)[:, i] / max(np.asarray(sensitivities1)[1:, i]), label=parameters[i])
+            plt.plot(t[:], np.asarray(sensitivities1_3cycles)[:, i] / max(np.asarray(sensitivities1_3cycles)[1:, i]), label=parameters[i])
 
         plt.legend(loc='center right')
         plt.xlabel('t')
@@ -119,7 +119,7 @@ def cycle_3_sensitivity(parameters, exponential_level, parameter_base_values, cy
             sensitivitiesT_4cycles[i] = Si['ST']
 
         for i in range(0, len(parameters)):
-            plt.plot(t[:], np.asarray(sensitivities1)[:, i], label=parameters[i])
+            plt.plot(t[:], np.asarray(sensitivities1_4cycles)[:, i], label=parameters[i])
 
         plt.legend(loc='center right')
         plt.xlabel('t')
@@ -132,13 +132,13 @@ def cycle_3_sensitivity(parameters, exponential_level, parameter_base_values, cy
         print('First Sensitivity peaks for 4 cycles:')
         for i in range(0, len(parameters)):
             print('\t', parameters[i], 'peaks:')
-            peak_list, _ = find_peaks(np.asarray(sensitivities1)[100:, i])
+            peak_list, _ = find_peaks(np.asarray(sensitivities1_4cycles)[100:, i])
             peak_list = np.sort(peak_list)
             for peak in peak_list:
-                print('\t\t at t =', t[peak], 'for a sensitivity of', np.asarray(sensitivities1)[peak, i])
+                print('\t\t at t =', t[peak], 'for a sensitivity of', np.asarray(sensitivities1_4cycles)[peak, i])
 
         for i in range(0, len(parameters)):
-            plt.plot(t[:], np.asarray(sensitivitiesT)[:, i], label=parameters[i])
+            plt.plot(t[:], np.asarray(sensitivitiesT_4cycles)[:, i], label=parameters[i])
 
         plt.legend(loc='center right')
         plt.xlabel('t')
@@ -150,13 +150,13 @@ def cycle_3_sensitivity(parameters, exponential_level, parameter_base_values, cy
         print('Total Sensitivity peaks for 4 cycles:')
         for i in range(0, len(parameters)):
             print('\t', parameters[i], 'peaks:')
-            peak_list, _ = find_peaks(np.asarray(sensitivitiesT)[100:, i])
+            peak_list, _ = find_peaks(np.asarray(sensitivitiesT_4cycles)[100:, i])
             peak_list = np.sort(peak_list)
             for peak in peak_list:
-                print('\t\t at t =', t[peak], 'for a sensitivity of', np.asarray(sensitivitiesT)[peak, i])
+                print('\t\t at t =', t[peak], 'for a sensitivity of', np.asarray(sensitivitiesT_4cycles)[peak, i])
 
         for i in range(0, len(parameters)):
-            plt.plot(t[:], np.asarray(sensitivities1)[:, i] / max(np.asarray(sensitivities1)[1:, i]),
+            plt.plot(t[:], np.asarray(sensitivities1_4cycles)[:, i] / max(np.asarray(sensitivities1_4cycles)[1:, i]),
                      label=parameters[i])
 
         plt.legend(loc='center right')
@@ -187,7 +187,7 @@ def cycle_3_sensitivity(parameters, exponential_level, parameter_base_values, cy
             sensitivitiesT_2cycles[i] = Si['ST']
 
         for i in range(0, len(parameters)):
-            plt.plot(t[:], np.asarray(sensitivities1)[:, i], label=parameters[i])
+            plt.plot(t[:], np.asarray(sensitivities1_2cycles)[:, i], label=parameters[i])
 
         plt.legend(loc='center right')
         plt.xlabel('t')
@@ -199,13 +199,13 @@ def cycle_3_sensitivity(parameters, exponential_level, parameter_base_values, cy
         print('First Sensitivity peaks for 2 cycles:')
         for i in range(0, len(parameters)):
             print('\t', parameters[i], 'peaks:')
-            peak_list, _ = find_peaks(np.asarray(sensitivities1)[100:, i])
+            peak_list, _ = find_peaks(np.asarray(sensitivities1_2cycles)[100:, i])
             peak_list = np.sort(peak_list)
             for peak in peak_list:
-                print('\t\t at t =', t[peak], 'for a sensitivity of', np.asarray(sensitivities1)[peak, i])
+                print('\t\t at t =', t[peak], 'for a sensitivity of', np.asarray(sensitivities1_2cycles)[peak, i])
 
         for i in range(0, len(parameters)):
-            plt.plot(t[:], np.asarray(sensitivitiesT)[:, i], label=parameters[i])
+            plt.plot(t[:], np.asarray(sensitivitiesT_2cycles)[:, i], label=parameters[i])
 
         plt.legend(loc='center right')
         plt.xlabel('t')
@@ -217,15 +217,15 @@ def cycle_3_sensitivity(parameters, exponential_level, parameter_base_values, cy
         print('Total Sensitivity peaks for 2 cycles:')
         for i in range(0, len(parameters)):
             print('\t', parameters[i], 'peaks:')
-            peak_list, _ = find_peaks(np.asarray(sensitivitiesT)[100:, i])
+            peak_list, _ = find_peaks(np.asarray(sensitivitiesT_2cycles)[100:, i])
             peak_list = np.sort(peak_list)
             for peak in peak_list:
-                print('\t\t at t =', t[peak], 'for a sensitivity of', np.asarray(sensitivitiesT)[peak, i])
+                print('\t\t at t =', t[peak], 'for a sensitivity of', np.asarray(sensitivitiesT_2cycles)[peak, i])
 
-        print(np.asarray(sensitivities1)[:, 0])
+        print(np.asarray(sensitivities1_2cycles)[:, 0])
 
         for i in range(0, len(parameters)):
-            plt.plot(t[:], np.asarray(sensitivities1)[:, i] / max(np.asarray(sensitivities1)[1:, i]),
+            plt.plot(t[:], np.asarray(sensitivities1_2cycles)[:, i] / max(np.asarray(sensitivities1_2cycles)[1:, i]),
                      label=parameters[i])
 
         plt.legend(loc='center right')
@@ -325,6 +325,4 @@ if __name__ == '__main__':
         1  # G_3
     ]
 
-cycle_2_sensitivity()
-cycle_3_sensitivity()
-cycle_4_sensitivity()
+cycle_3_sensitivity(cycles=[2,3,4])
