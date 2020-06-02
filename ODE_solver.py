@@ -356,6 +356,54 @@ def plot_figs(cycles=3):
     exponents = np.linspace(-2, 2, 5)
     file_name = 'images/' + str(cycles) + 'enzymes_'
 
+    pulse = ODESolving({**sensible_params, 'amplitude': 1})
+    plt.subplot(221)
+    time = [-0.00000000001, 0.0, 0.00000000001, 1.99999999999, 2.0, 2.0000000001, 5.0]
+    pulse_values = []
+    for t in time:
+        pulse_values.append(pulse.pulse_input(t))
+    plt.plot(time, pulse_values)
+    plt.ylabel('I0(t)')
+    plt.yticks([1.0], " ")
+    plt.xlabel('time (min)')
+
+
+    plt.subplot(224)
+    amplitude_values = [1, 1.5, 2, 3.5]
+    for value in amplitude_values:
+        alter_I = ODESolving({**sensible_params, 'amplitude': value})
+        sole = alter_I.solve(equations=equation)
+        label = 'I_0=' + str(round(value, 4))
+        plt.plot(sole.t[:], sole.y[last_index, :], label=label)
+    plt.ylabel(variable_labels[last_index])
+    plt.legend(loc='best')
+    plt.xlabel('time (min)')
+
+    plt.subplot(223)
+    G1_values = [0, 0.0775, 0.1775, 0.2775]
+    for value in G1_values:
+        alter_G = ODESolving({**sensible_params, 'G_1': value})
+        sole = alter_G.solve(equations=equation)
+        label = 'G_1=' + str(round(value, 4))
+        plt.plot(sole.t[:], sole.y[last_index, :], label=label)
+    plt.ylabel(variable_labels[last_index])
+    plt.legend(loc='best')
+    plt.xlabel('time (min)')
+
+    plt.subplot(222)
+    RT_values = [3e4, 4e4, 4.5e4, 5e4]
+    for value in RT_values:
+        alter_RT = ODESolving({**sensible_params, 'R_T': value})
+        sole = alter_RT.solve(equations=equation)
+        label = 'R_T=' + str(round(value, 4))
+        plt.plot(sole.t[:], sole.y[last_index, :], label=label)
+    plt.ylabel(variable_labels[last_index])
+    plt.legend(loc='best')
+    plt.xlabel('time (min)')
+    plt.savefig(file_name + 'fig6.pdf')
+    plt.show()
+
+
     amplitude_values = 2.5 * np.power(10, exponents)
     for value in amplitude_values:
         alter_I = ODESolving({**sensible_params, 'amplitude': value})
@@ -364,36 +412,9 @@ def plot_figs(cycles=3):
         plt.plot(sole.t[:], sole.y[last_index, :], label=label)
     plt.ylabel(variable_labels[last_index])
     plt.legend(loc='best')
-    # plt.title('fig 6.D')
-    plt.xlabel('time')
-    plt.savefig(file_name + 'fig6D.pdf')
+    plt.xlabel('time (min)')
+    plt.savefig(file_name + 'I0variation.pdf')
     plt.show()
-
-    G1_values = 0.2775 * np.power(10, exponents)
-    for value in G1_values:
-        alter_G = ODESolving({**sensible_params, 'G_1': value})
-        sole = alter_G.solve(equations=equation)
-        label = 'G_1=' + str(round(value, 4))
-        plt.plot(sole.t[:], sole.y[last_index, :], label=label)
-    plt.ylabel(variable_labels[last_index])
-    plt.legend(loc='best')
-    # plt.title('fig 6.C')
-    plt.xlabel('time')
-    plt.savefig(file_name + 'fig6C.pdf')
-    plt.show()
-
-    # RT_values = 5e4 * np.power(10, exponents)
-    # for value in RT_values:
-    #     alter_RT = ODESolving({**sensible_params, 'R_T': value})
-    #     sole = alter_RT.solve(equations=equation)
-    #     label = 'R_T=' + str(round(value, 4))
-    #     plt.plot(sole.t[:], sole.y[last_index, :], label=label)
-    # plt.ylabel(variable_labels[last_index])
-    # plt.legend(loc='best')
-    # plt.title('fig 6.B')
-    # plt.xlabel('time')
-    # plt.savefig(file_name + 'fig6B.pdf')
-    # plt.show()
 
     G2_values = 5e-4 * np.power(10, exponents)
     for value in G2_values:
@@ -405,6 +426,18 @@ def plot_figs(cycles=3):
     plt.legend(loc='best')
     plt.xlabel('time')
     plt.savefig(file_name + 'G2variation.pdf')
+    plt.show()
+
+    G1_values = 0.2775 * np.power(10, exponents)
+    for value in G1_values:
+        alter_G = ODESolving({**sensible_params, 'G_1': value})
+        sole = alter_G.solve(equations=equation)
+        label = 'G_1=' + str(round(value, 4))
+        plt.plot(sole.t[:], sole.y[last_index, :], label=label)
+    plt.ylabel(variable_labels[last_index])
+    plt.legend(loc='best')
+    plt.xlabel('time')
+    plt.savefig(file_name + 'G1variation.pdf')
     plt.show()
 
     G3_values= 1 * np.power(10, exponents)
