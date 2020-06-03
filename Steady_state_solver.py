@@ -110,7 +110,7 @@ if __name__ == '__main__':
     plt.plot(x_marks, steady_states[:, last_index], color='C2')
 
     plt.ylabel('Output')
-    plt.xlabel('G_' + str(i+1) + ' Multiplier')
+    plt.xlabel('G_' + str(4) + ' Multiplier')
     plt.xscale('log')
     plt.grid()
     plt.figlegend(lines, ('2 enzyme cycles', '3 enzyme cycles', '4 enzyme cycles'), loc='upper left')

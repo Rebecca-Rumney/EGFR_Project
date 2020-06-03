@@ -57,10 +57,8 @@ def cycle_3_sensitivity(parameters, exponential_level, parameter_base_values, cy
         for i in range(0, len(parameters)):
             plt.plot(t[:], np.asarray(sensitivities1_3cycles)[:, i], label=parameters[i])
 
-        plt.legend(loc='center right')
         plt.xlabel('t')
         plt.ylabel('Sensitivity')
-        plt.title('First Sensitivity 3 cycle')
         plt.savefig('images/Sensitivity1_3enzymes.pdf')
         plt.show()
 
@@ -75,10 +73,8 @@ def cycle_3_sensitivity(parameters, exponential_level, parameter_base_values, cy
         for i in range(0, len(parameters)):
             plt.plot(t[:], np.asarray(sensitivitiesT_3cycles)[:, i], label=parameters[i])
 
-        plt.legend(loc='center right')
         plt.xlabel('t')
         plt.ylabel('Sensitivity')
-        plt.title('Total Sensitivity 3 cycle')
         plt.savefig('images/SensitivityT_3enzymes.pdf')
         plt.show()
 
@@ -95,10 +91,8 @@ def cycle_3_sensitivity(parameters, exponential_level, parameter_base_values, cy
         for i in range(0, len(parameters)):
             plt.plot(t[:], np.asarray(sensitivities1_3cycles)[:, i] / max(np.asarray(sensitivities1_3cycles)[1:, i]), label=parameters[i])
 
-        plt.legend(loc='center right')
         plt.xlabel('t')
         plt.ylabel('sensitivity')
-        plt.title('Rescaled First Sensitivities 3 cycle')
         plt.yticks([])
         plt.savefig('images/SensitivityScaled1_3enzymes.pdf')
         plt.show()
@@ -121,10 +115,8 @@ def cycle_3_sensitivity(parameters, exponential_level, parameter_base_values, cy
         for i in range(0, len(parameters)):
             plt.plot(t[:], np.asarray(sensitivities1_4cycles)[:, i], label=parameters[i])
 
-        plt.legend(loc='center right')
         plt.xlabel('t')
         plt.ylabel('Sensitivity')
-        plt.title('First Sensitivity 4 cycle')
         plt.savefig('images/Sensitivity1_4enzymes.pdf')
         plt.show()
 
@@ -140,10 +132,8 @@ def cycle_3_sensitivity(parameters, exponential_level, parameter_base_values, cy
         for i in range(0, len(parameters)):
             plt.plot(t[:], np.asarray(sensitivitiesT_4cycles)[:, i], label=parameters[i])
 
-        plt.legend(loc='center right')
         plt.xlabel('t')
         plt.ylabel('Sensitivity 4 cycle')
-        plt.title('Total Sensitivity')
         plt.savefig('images/SensitivityT_4enzymes.pdf')
         plt.show()
 
@@ -159,10 +149,8 @@ def cycle_3_sensitivity(parameters, exponential_level, parameter_base_values, cy
             plt.plot(t[:], np.asarray(sensitivities1_4cycles)[:, i] / max(np.asarray(sensitivities1_4cycles)[1:, i]),
                      label=parameters[i])
 
-        plt.legend(loc='center right')
         plt.xlabel('t')
         plt.ylabel('sensitivity')
-        plt.title('Rescaled First Sensitivities 4 cycle')
         plt.yticks([])
         plt.savefig('images/SensitivityScaled1_4enzymes.pdf')
         plt.show()
@@ -189,10 +177,8 @@ def cycle_3_sensitivity(parameters, exponential_level, parameter_base_values, cy
         for i in range(0, len(parameters)):
             plt.plot(t[:], np.asarray(sensitivities1_2cycles)[:, i], label=parameters[i])
 
-        plt.legend(loc='center right')
         plt.xlabel('t')
         plt.ylabel('Sensitivity')
-        plt.title('First Sensitivity 2 cycle')
         plt.savefig('images/Sensitivity1_2enzymes.pdf')
         plt.show()
 
@@ -207,10 +193,8 @@ def cycle_3_sensitivity(parameters, exponential_level, parameter_base_values, cy
         for i in range(0, len(parameters)):
             plt.plot(t[:], np.asarray(sensitivitiesT_2cycles)[:, i], label=parameters[i])
 
-        plt.legend(loc='center right')
         plt.xlabel('t')
         plt.ylabel('Sensitivity')
-        plt.title('Total Sensitivity 2 cycle')
         plt.savefig('images/SensitivityT_2enzymes.pdf')
         plt.show()
 
@@ -231,7 +215,6 @@ def cycle_3_sensitivity(parameters, exponential_level, parameter_base_values, cy
         plt.legend(loc='center right')
         plt.xlabel('t')
         plt.ylabel('sensitivity')
-        plt.title('Rescaled First Sensitivities 2 cycle')
         plt.yticks([])
         plt.savefig('images/SensitivityScaled1_2enzymes.pdf')
         plt.show()
@@ -325,4 +308,4 @@ if __name__ == '__main__':
         1  # G_3
     ]
 
-cycle_3_sensitivity(cycles=[2,3,4])
+    cycle_3_sensitivity(parameters, exponential, parameter_base_values, cycles=[2,3,4])
